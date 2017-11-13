@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Janitor</title>
+    <style>
+        html, body {height: 100%; width: 100%;
+        padding: 1; margin: 2;}
+        H1 {font-family: monospace; font-size: 36px; color: ghostwhite; background-color: rgb(0,184,172); width:60%; border-radius: 30px; text-align: center}
+        form {font-family: monospace; font-size: 18px}
+        select {font-family: monospace; font-size: 18px}
+        input {font-family: monospace; font-size: 18px}
+        p {font-family: monospace; font-size: 14px}
+        body { background: #FFF url(https://j29831emh5lwzq1euii4vztg-wpengine.netdna-ssl.com/wp-content/uploads/2017/05/zenko-multi-cloud.png) no-repeat bottom left; background-size: 300px}
+        #app {display: inline-block; width:100%}
+        span {float:left; width: 49%}
+    </style>
+</head>
+<body style="background-color: rgb(153,0,94);" >
+    <DIV id="app">
+        <SPAN>
+        <H1>Buckets Overview</H1>
+        <% a.forEach(function(line){ %>
+        <p><%= line %></p>
+        <% }) %>
+        </SPAN>
+        <SPAN>
+        <H1>Transfer your file</H1>
+        <form action="dothemagic" method="post">
+            File name: <input type="text" name="key"><br><br> 
+            Bucket source: <select name="src_bucket">
+                <option value=""></option>
+                <option value="your-bucket-aws">AWS S3</option>
+                <option value="your-bucket-azure">Azure Blob</option>
+                <option value="your-bucket-cool">Azure Blob Cool</option>
+            </select><br><br>
+            Bucket destination: <select name="dst_bucket">
+                <option value=""></option>
+                <option value="your-bucket-aws">AWS S3</option>
+                <option value="your-bucket-azure">Azure Blob</option>
+                <option value="your-bucket-cool">Azure Blob Cool</option>
+            </select><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        </SPAN>
+    </DIV>
+</body>
+</html>
